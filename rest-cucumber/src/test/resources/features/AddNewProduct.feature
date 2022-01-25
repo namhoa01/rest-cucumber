@@ -1,4 +1,4 @@
-@product
+@product @add_product
 Feature: Add new product
 
   Scenario: Add new a product

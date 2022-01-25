@@ -9,6 +9,7 @@ import groovy.util.logging.Slf4j;
 public class TestBase {
 
   protected static PropertyReader prop;
+  protected static int id;
 
   public TestBase() {
     prop = PropertyReader.getInstance();

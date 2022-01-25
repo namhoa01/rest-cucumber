@@ -6,10 +6,7 @@ import com.kms.api.model.LaptopBag;
 import com.kms.api.requests.RequestFactory;
 import com.kms.api.util.RequestBuilder;
 import com.kms.api.util.ValidationUtil;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +17,6 @@ public class AddProductSteps extends TestBase {
   private Object requestPayload;
   private LaptopBag reqAddLaptop;
   private LaptopBag resAddLaptop;
-  private int id;
   private Response res;
 
   @Given("^the path \"([^\"]*)\" to the endpoint$")

@@ -24,7 +24,7 @@ public class RestClient extends TestBase {
   public static Response doGetRequestWithParams(
       String requestPath, Map<String, String> params, ContentType contentType) {
     return given()
-        .queryParams(params)
+        .pathParams(params)
         .contentType(contentType)
         .accept(contentType)
         .when()
@@ -70,7 +70,20 @@ public class RestClient extends TestBase {
    */
   public static Response doPutRequestWithPayload(
       String requestPath, ContentType contentType, Object body) {
-    return null;
+    return given()
+        .log()
+        .everything()
+        .contentType(contentType)
+        .with()
+        .accept(contentType)
+        .body(body)
+        .when()
+        .put(requestPath)
+        .then()
+        .log()
+        .all()
+        .extract()
+        .response();
   }
 
   /**
@@ -79,7 +92,18 @@ public class RestClient extends TestBase {
    * @param requestPath the endpoint
    * @return the response of the Delete request
    */
-  public static Response doDeleteRequestWithParams(String requestPath) {
-    return null;
+  public static Response doDeleteRequestWithParams(String requestPath, Map<String, String> params) {
+    return given()
+        .pathParams(params)
+        .log()
+        .everything()
+        .with()
+        .when()
+        .delete(requestPath)
+        .then()
+        .log()
+        .all()
+        .extract()
+        .response();
   }
 }
